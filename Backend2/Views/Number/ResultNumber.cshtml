@@ -1,0 +1,61 @@
+﻿@model Backend2.Models.NumberResultViewModel
+@{
+    ViewBag.Title = "Hello Forms";
+}
+
+<h2>Calculator</h2>
+
+<form asp-action="NumberManual">
+    <div class="form-group">
+        @if (ViewBag.Error == null)
+        {
+        <div class="form">
+            <input type="text" name="Name" value="@ViewBag.Name" />
+            @if (ViewBag.Opt == "3") 
+            {
+                <select name="opt">
+                    <option value="3">*</option>
+                    <option value="2">-</option>
+                    <option value="1">+</option>
+                    <option value="4">/</option>
+                </select>
+            }
+            @if (ViewBag.Opt == "1")
+            {
+                <select name="opt">
+                    <option value="1">+</option>
+                    <option value="2">-</option>
+                    <option value="3">*</option>
+                    <option value="4">/</option>
+                </select>
+            }
+            @if (ViewBag.Opt == "2")
+            {
+                <select name="opt">
+                    <option value="2">-</option>
+                    <option value="3">*</option>
+                    <option value="1">+</option>
+                    <option value="4">/</option>
+                </select>
+            }
+            @if (ViewBag.Opt == "4")
+            {
+                <select name="opt">
+                    <option value="4">/</option>
+                    <option value="2">-</option>
+                    <option value="1">+</option>
+                    <option value="3">*</option>
+                </select>
+            }
+            <input type="text" name="Name1" value="@ViewBag.Name1" />
+            <button type="submit" class="btn btn-primary">Submit</button> <text> = @Model.First</text>
+        </div>
+        }
+        else
+        {
+            <input type="text" name="Name" class="form-control input-validation-error" />
+            <span class="field-validation-error">@ViewBag.Error</span>
+        }
+    </div>
+
+</form>

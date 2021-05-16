@@ -1,0 +1,58 @@
+﻿
+<h2>ManualWithSeparateHandlers</h2>
+
+<form asp-action="NumberManualWithSeparateHandlers">
+    <div class="form-group">
+    @if (ViewBag.Error == null && ViewBag.Error1 == null)
+    {
+        <div class="form">
+            <input type="text" name="Name" />
+
+            <select name="opt">
+                <option value="1">+</option>
+                <option value="2">-</option>
+                <option value="3">*</option>
+                <option value="4">/</option>
+            </select>
+
+            <input type="text" name="Name1" />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+    else
+    {
+        <div class="form">
+            @if (ViewBag.Name == "")
+            {
+                <input type="text" name="Name" class="input-validation-error" value="@ViewBag.Name" />
+            }
+            else
+            {
+                <input type="text" name="Name" value="@ViewBag.Name" />
+            }
+            <span class="field-validation-error">@ViewBag.Error</span>
+            <select name="opt">
+                <option value="1">+</option>
+                <option value="2">-</option>
+                <option value="3">*</option>
+                <option value="4">/</option>
+            </select>
+            @if (ViewBag.Name1 == "0" && ViewBag.Opt == "4")
+            {
+                <input type="text" name="Name1" class="input-validation-error" value="@ViewBag.Name1" />
+            }
+            else if (ViewBag.Name1 == "")
+            {
+                <input type="text" name="Name1" class="input-validation-error" value="@ViewBag.Name1" />
+            }
+            else
+            {
+                <input type="text" name="Name1" value="@ViewBag.Name1" />
+            }
+            <span class="field-validation-error">@ViewBag.Error1</span>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+    </div>
+
+</form>

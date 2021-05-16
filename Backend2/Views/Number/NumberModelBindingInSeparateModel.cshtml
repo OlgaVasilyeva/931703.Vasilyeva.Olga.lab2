@@ -1,0 +1,24 @@
+﻿@model Backend2.Models.NumberViewModel
+@{
+    ViewBag.Title = "Hello Forms";
+}
+
+<h2>ModelBindingInSeparateModel</h2>
+
+<form asp-action="NumberModelBindingInSeparateModel">
+    <div class="form-group">
+        <div class="form">
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+            <select asp-for="Opt">
+                <option value="1">+</option>
+                <option value="2">-</option>
+                <option value="3">*</option>
+                <option value="4">/</option>
+            </select>
+            <input asp-for="Name1" />
+            <span asp-validation-for="Name1"></span>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
